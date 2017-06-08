@@ -2,10 +2,14 @@
 * @Author: anchen
 * @Date:   2017-06-06 11:26:28
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-06-06 14:04:56
+* @Last Modified time: 2017-06-07 14:34:51
 */
 /*.header{
     position: fixed;
     top:0;
     left:0;
 }*/
+.login{
+    font-size: 30px;
+    text-align: right;
+}
