@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-06-07 18:15:26
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-06-08 17:44:20
+* @Last Modified time: 2017-06-09 15:44:11
 */
 import React from "react";
 import {Card} from 'antd';
@@ -42,5 +42,5 @@ export default class xinwen extends React.Component{
                     </Card>
                 </div>
             );
-        };
+    };
 }

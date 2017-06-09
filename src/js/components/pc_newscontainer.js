@@ -25,7 +25,7 @@ export default class PCNewsContainer extends React.Component {
           <Row>
               <Col span={4}></Col>
               <Col span={16} style={clear}>
-                  {/* 轮播 + 短列表*/}
+                  {/* 轮播 + 带图片短列表*/}
                   <div class="leftContainer">
                       <div class="carousel">
                           <Carousel class="img_box" {...settings}>
@@ -37,7 +37,7 @@ export default class PCNewsContainer extends React.Component {
                       </div>
                       <PCNewsImages liwidth={"31%"}  title="娱乐" count={6} type="yule" width={"400px"} bordered="false" />
                   </div>
-                  {/* 选项卡*/}
+                  {/* 纯新闻列表*/}
                   <Tabs class="news_tabs">
                       <TabPane tab="头条" key="1">
                           <PCNewsBlock count={22} type="top" width="100%" bordered="false" />
@@ -50,7 +50,7 @@ export default class PCNewsContainer extends React.Component {
               <Col span={4}></Col>
           </Row>
 
-          {/*长列表*/}
+          {/*带图片长列表*/}
           <Row>
               <Col span={4}></Col>
               <Col span={18}>

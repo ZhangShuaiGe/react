@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-06-06 11:26:28
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-06-07 14:34:51
+* @Last Modified time: 2017-06-09 11:00:15
 */
 /*.header{
     position: fixed;
@@ -12,4 +12,37 @@
 .login{
     font-size: 30px;
     text-align: right;
+}
+.clearfix::after{
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.a_box{
+    display:block;
+    margin-top: 0px;
+    margin-right: 15px;
+}
+.left_img{
+    float: left;
+    width:20%;
+    padding-left:10px;
+    box-sizing: border-box;
+}
+.left_img img{
+    width:100%;
+    height: auto;
+}
+.right_text{
+    float:left;
+    width:80%;
+    box-sizing: border-box;
+    padding:0 10px;
+}
+.list_li{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-right: 15px;
 }
