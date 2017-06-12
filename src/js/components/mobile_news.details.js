@@ -14,8 +14,8 @@ export default class PCNewsDetails extends React.Component {
     var myFetchOptions = {
       method: 'GET'
     };
-    console.log(this.props.params);
-    console.log(this.props.params.uniquekey);
+    // console.log(this.props.params);
+    // console.log(this.props.params.uniquekey);
     fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnewsitem&uniquekey=" + this.props.params.uniquekey, myFetchOptions).then(response => response.json()).then(json => {
       this.setState({newsItem: json});
       console.log(this.state.newsItem);
