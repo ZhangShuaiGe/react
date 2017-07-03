@@ -1,13 +1,15 @@
 import React from 'react';
-import {Row, Col} from 'antd';
+import {Row, Col,Card} from 'antd';
 import Header from "./pc_header";
 import Footer from "./pc_footer";
 import Newslist from "./pc_news_image_block.js";
+import Comment from "./comment.js";
 export default class PCNewsDetails extends React.Component {
   constructor() {
     super();
     this.state = {
-      newsItem: ''
+      newsItem: '',
+      ago:"",
     };
   };
   
@@ -28,6 +30,7 @@ export default class PCNewsDetails extends React.Component {
       return {__html: this.state.newsItem.pagecontent};
   };
 
+
   render() {
     return (
       <div>
@@ -37,7 +40,9 @@ export default class PCNewsDetails extends React.Component {
           <Row>
               <Col span={2}></Col>
               <Col span={14} className="container">
-                  <div class="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
+                  <div class="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}>
+                  </div>
+                  <Comment />
               </Col>
               <Col span={6}>
                   <Newslist count={20} type="top" width={"300px"} liwidth={"40%"}/>

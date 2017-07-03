@@ -18,7 +18,6 @@ const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
-
 class PcHeader extends React.Component {
   constructor(){
     super();
@@ -31,6 +30,13 @@ class PcHeader extends React.Component {
       userid: 0,
     }
   };
+  // 加载前
+  componentWillMount(){
+      if(localStorage.userName != undefined){
+          this.setState({hasLogined:true,userNickName:localStorage.userName});
+      }
+
+  }
   // 登录框是否显示
   setModalVisible(value)
   {
@@ -85,6 +91,9 @@ class PcHeader extends React.Component {
           console.log('登录form', values);
           // 登录成功后 hasLogined:true 是为了显示 登录人 
           this.setState({userNickName:values["userName"],hasLogined:true});
+          // 存储
+          window.localStorage.setItem("userName",values["userName"]);
+          // window.localStorage.setItem("userid",this.state.userid);
           message.success("登录成功！");
           this.setModalVisible(false);
         }else{
@@ -96,6 +105,8 @@ class PcHeader extends React.Component {
   loginOut(){
       this.setState({hasLogined:false});
       message.success("已退出！");
+      localStorage.removeItem("userName");
+      this.setState({hasLogined:false});
   }
   // 点击个人中心
   center(){
@@ -153,9 +164,6 @@ class PcHeader extends React.Component {
                     </Menu.Item>
                     <Menu.Item key="keji">
                       <Icon type="appstore"/>科技
-                    </Menu.Item>
-                    <Menu.Item key="shishang">
-                      <Icon type="appstore"/>时尚
                     </Menu.Item>
                     {userShow}
                 </Menu>

@@ -31,6 +31,7 @@
   "devDependencies": {
     "babel-plugin-import": "^1.0.1",
     "react-redux": "^5.0.5",
-    "redux-devtools": "^3.4.0"
+    "redux-devtools": "^3.4.0",
+    "webpack-dev-server": "^1.16.5"
   }
 }
