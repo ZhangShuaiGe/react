@@ -11,10 +11,19 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 // 响应式插件
 import MediaQuery from 'react-responsive';
 
+// 调用 redux 的 容器  默认写法
+import { Provider } from 'react-redux';
+// 调用 store
+import configureStore from './store/configusestore';
+
 export default class Root extends React.Component{
+    // 传进去stroe
+    const store = configureStore();
+
     render(){
+
         return (
-            <div>
+            <Provider store={store}>
                 <MediaQuery query="(min-device-width:1224px)">
                     <Router history={hashHistory}>
                         <Route path="/" components={Index}></Route>
@@ -27,8 +36,9 @@ export default class Root extends React.Component{
                         <Route path="/details/:uniquekey" components={MobileDetails}></Route>
                     </Router>
                 </MediaQuery>
-            </div>
+            </Provider>
         );
+        
     };
 }
 
