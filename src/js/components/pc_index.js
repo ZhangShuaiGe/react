@@ -12,20 +12,37 @@ import { bindActionCreators } from 'redux';
 import * as userinfoActions from '../actions/userinfo';
 
 class Index extends React.Component{
+    constructor(){
+        super();
+    }
+    componentWillMount() {
+        console.log(1111);
+        console.log(this.props.userinfoActions);
+        console.log(this.props.userinfoActions.headnav());
+        // 模拟登陆
+        this.props.userinfoActions.headnav({
+            userid: 'abc',
+            city: 'beijing'
+        })
+        console.log(this.props.userinfoActions.headnav);
+    }
     render(){
+        console.log("Hello.js页面:",this.props.userinfoActions);
+        console.log("info:",this.props.headnav);
+        console.log("userid:",this.props.headnav.userid);
         return (
             <div>
-                <Header />
-                <Body />
-                <Footer />
+                111
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
+    console.log("state:",state);
+    console.log("state.headnav:",state.headnav);
     return {
-        userinfo: state.userinfo
+        headnav: state.headnav
     }
 }
 
