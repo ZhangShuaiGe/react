@@ -7,10 +7,10 @@
 // 调用结合
 import {combineReducers} from "redux";
 // 引入其中一个reducers
-import headnav from "./headnav.js";
+import userinfo from "./headnav.js";
 // 结合
 const rootReducer = combineReducers({
-    headnav
+    userinfo
 })
 // 暴露出去
 export default rootReducer

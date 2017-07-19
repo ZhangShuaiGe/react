@@ -15,34 +15,23 @@ class Index extends React.Component{
     constructor(){
         super();
     }
-    componentWillMount() {
-        console.log(1111);
-        console.log(this.props.userinfoActions);
-        console.log(this.props.userinfoActions.headnav());
-        // 模拟登陆
-        this.props.userinfoActions.headnav({
-            userid: 'abc',
-            city: 'beijing'
-        })
-        console.log(this.props.userinfoActions.headnav);
-    }
     render(){
-        console.log("Hello.js页面:",this.props.userinfoActions);
-        console.log("info:",this.props.headnav);
-        console.log("userid:",this.props.headnav.userid);
+        console.log("开始");
+        console.log("userinfo:",this.props.userifo);
+        console.log("actions:",this.props.userinfoActions);
         return (
             <div>
-                111
+                <Header actions={this.props.userinfoActions}/>
+                <Body />
+                <Footer />
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    console.log("state:",state);
-    console.log("state.headnav:",state.headnav);
     return {
-        headnav: state.headnav
+        userifo: state.userinfo
     }
 }
 

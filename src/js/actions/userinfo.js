@@ -3,16 +3,16 @@
 export const USERINFO_LOGIN = 'USERINFO_LOGIN';
 export const UPDATE_CITYNAME = 'UPDATE_CITYNAME';
 
-export function headnav(data){
+export function head(data){
     return {
-        type:USERINFO_LOGIN,
+        type:"HEAD",
         data
     }
 }
 
-export function nav(data){
+export function news(data){
     return {
-        type:UPDATE_CITYNAME,
+        type:"NEWS",
         data
     }
 }

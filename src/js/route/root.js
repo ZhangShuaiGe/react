@@ -5,6 +5,7 @@ import {Router,Route,hashHistory} from 'react-router';
 import Index from "../components/pc_index";
 import Mobile from "../components/mobile_index.js";
 import Details from "../components/pc_news.details.js";
+import News from "../components/pc_news.js";
 import MobileDetails from "../components/mobile_news.details.js";
 // css
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
@@ -22,10 +23,24 @@ export default class Root extends React.Component{
     render(){
 
         return (
-                <Router history={hashHistory}>
-                    <Route path="/" components={Index}></Route>
-                    <Route path="/details/:uniquekey" components={Details}></Route>
-                </Router>
+
+
+                <div>
+                    <MediaQuery query="(min-device-width:1224px)">
+                        <Router history={hashHistory}>
+                            <Route path="/" components={Index}></Route>
+                            <Route path="/details/:uniquekey" components={Details}></Route>
+                            <Route path="/pc_news/:type" components={News}></Route>
+                        </Router>
+                    </MediaQuery>
+                    <MediaQuery query="(max-device-width:1224px)">
+                        <Router history={hashHistory}>
+                            <Route path="/" components={Mobile}></Route>
+                            <Route path="/details/:uniquekey" components={MobileDetails}></Route>
+                        </Router>
+                    </MediaQuery>
+                </div>
+
         );
         
     };

@@ -7,23 +7,38 @@
 import React from "react";
 import {Card} from 'antd';
 import {Router, Route, Link, browserHistory} from 'react-router';
+var a = 0;
 export default class NewsImg extends React.Component{
 
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             news: ''
         };
+        console.log("构造");
     }
 
     componentWillMount() {
+        console.log("willmount重载了");
+        // console.log("news_action:",this.props.actions);
         var myFetchOptions = {
             method: 'GET'
         };
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
     };
 
+    componentWillReceiveProps(nextProps){
+        console.log("props:",nextProps.type);
+        var myFetchOptions = {
+            method: 'GET'
+        };
+        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + nextProps.type + "&count=" + this.props.count, myFetchOptions)
+        .then(response => response.json())
+        .then(json => this.setState({news: json}));
+    }
+
     render() {
+            console.log("state:",this.state.news);
             // 超出隐藏
             const ellipsis = {
                 overflow:"hidden",
@@ -33,7 +48,6 @@ export default class NewsImg extends React.Component{
 
             const {news} = this.state;
 
-            console.log(news);
 
             const newsList = news.length
                 ? news.map((newsItem, index) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'antd';
-import {Link} from 'react-router';
+import {Link,hashHistory} from 'react-router';
 import { 
   Menu,
   Icon,
@@ -35,7 +35,11 @@ class PcHeader extends React.Component {
       if(localStorage.userName != undefined){
           this.setState({hasLogined:true,userNickName:localStorage.userName});
       }
-
+      // 如果进入news页面 要查看 redux 传过来的 导航值，给导航加下划线
+      if(this.props.reduser != undefined){
+          console.log(this.props.reduser);
+          this.setState({current:this.props.reduser.type});
+      }
   }
   // 登录框是否显示
   setModalVisible(value)
@@ -58,6 +62,13 @@ class PcHeader extends React.Component {
       this.setState({modalVisible:true});
     }else{
       this.setState({current:e.key});
+        // 触发actions
+        this.props.actions.head({
+            type:e.key,
+        })
+      // 跳转新闻页面
+      const path = `/pc_news/${e.key}`
+      hashHistory.push(path);
     }
   }
   // 注册调用
@@ -148,10 +159,14 @@ class PcHeader extends React.Component {
                       <Icon type="appstore"/>头条
                     </Menu.Item>
                     <Menu.Item key="shehui">
-                      <Icon type="appstore"/>社会
+
+                             <Icon type="appstore"/>社会
+
                     </Menu.Item>
                     <Menu.Item key="guonei">
-                      <Icon type="appstore"/>国内
+
+                            <Icon type="appstore"/>国内
+
                     </Menu.Item>
                     <Menu.Item key="guoji">
                       <Icon type="appstore"/>国际
